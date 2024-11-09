@@ -39,7 +39,6 @@ function getStringLength(string) {
  */
 function isString(string) {
   return typeof string === 'string' || string instanceof String;
- 
 }
 
 /**
@@ -70,7 +69,7 @@ function concatenateStrings(string1, string2) {
  *   getFirstChar('') => ''
  */
 function getFirstChar(string) {
-  return string.charAt(0)
+  return string.charAt(0);
 }
 
 /**
@@ -132,9 +131,7 @@ function removeTrailingWhitespaces(string) {
  *   repeatString('abc', -2) => ''
  */
 function repeatString(string, number) {
-  
   return string.repeat(number > 0 ? number : '');
-  
 }
 
 /**
@@ -152,7 +149,7 @@ function repeatString(string, number) {
 function removeFirstOccurrences(string, substring) {
   const index = string.indexOf(substring);
   if (index === -1) {
-    return string; 
+    return string;
   }
   return string.slice(0, index) + string.slice(index + substring.length);
 }
@@ -172,9 +169,11 @@ function removeFirstOccurrences(string, substring) {
 function removeLastOccurrences(string, substring) {
   const removeIndex = string.lastIndexOf(substring);
   if (removeIndex === -1) {
-    return string; 
+    return string;
   }
-  return string.slice(0, removeIndex) + string.slice(removeIndex + substring.length);
+  return (
+    string.slice(0, removeIndex) + string.slice(removeIndex + substring.length)
+  );
 }
 
 /**
@@ -208,8 +207,8 @@ function sumOfCodes(string) {
  *   startsWith('Hello World', 'World') => false
  *   startsWith('Hello World', 'Hello') => true
  */
-function startsWith(string, substring ) {
-  return string.startsWith(substring)
+function startsWith(string, substring) {
+  return string.startsWith(substring);
 }
 
 /**
@@ -224,8 +223,7 @@ function startsWith(string, substring ) {
  *   endsWith('Hello World', 'Hello') => false
  */
 function endsWith(string, substring) {
-  return string.endsWith(substring)
-
+  return string.endsWith(substring);
 }
 
 /**
@@ -241,19 +239,8 @@ function endsWith(string, substring) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(minutes, seconds ) {
-
-  return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
-
-  if (minutes.toString().length < 2) {
-    minutes = '0' + minutes; 
-  }
-
-  if (seconds.toString().length < 2) {
-    seconds = '0' + seconds; 
-  }
-
-  return minutes + ':' + seconds;
+function formatTime(minutes, seconds) {
+  return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
 
 /**
@@ -298,7 +285,7 @@ function orderAlphabetically(string) {
  *   containsSubstring('12345', '34') => true
  */
 function containsSubstring(string, substring) {
-  return string.includes(substring)
+  return string.includes(substring);
 }
 
 /**
@@ -317,14 +304,14 @@ function containsSubstring(string, substring) {
  */
 function countVowels(string) {
   const vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'];
-  let number = 0
+  let number = 0;
 
-  for (let i=0; i<string.length; i+=1) {
-  if (vowels.includes(string[i])) {
-    number +=1
+  for (let i = 0; i < string.length; i += 1) {
+    if (vowels.includes(string[i])) {
+      number += 1;
+    }
   }
-}
-return number
+  return number;
 }
 
 /**
@@ -345,7 +332,6 @@ function isPalindrome(string) {
   return cleanedString === cleanedString.split('').reverse().join('');
 }
 
-
 /**
  * Find the longest word in the sentence. If there are multiple longest words,
  * the function returns the first one encountered.
@@ -359,12 +345,12 @@ function isPalindrome(string) {
  *   findLongestWord('No words here') => 'words'
  */
 function findLongestWord(sentence) {
-  const wordsInSentence = sentence.split(" ");
-  let longestWord = "";
+  const wordsInSentence = sentence.split(' ');
+  let longestWord = '';
 
-  for (let i = 0; i < wordsInSentence.length; i++) {
-    if (wordsInSentence[i].length > longestWord.length){
-      longestWord = wordsInSentence[i]
+  for (let i = 0; i < wordsInSentence.length; i += 1) {
+    if (wordsInSentence[i].length > longestWord.length) {
+      longestWord = wordsInSentence[i];
     }
   }
   return longestWord;
@@ -381,7 +367,10 @@ function findLongestWord(sentence) {
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
 function reverseWords(string) {
-  return string.split(" ").map(word => word.split("").reverse().join("")).join(" ");  
+  return string
+    .split(' ')
+    .map((word) => word.split('').reverse().join(''))
+    .join(' ');
 }
 
 /**
@@ -398,14 +387,14 @@ function reverseWords(string) {
 function invertCase(string) {
   let result = '';
 
-  for (let i = 0; i < string.length; i++)
-  if (string[i] === string[i].toUpperCase()) {
-    result += string[i].toLowerCase()
-  } else {
-    result += string[i].toUpperCase()
-  } 
+  for (let i = 0; i < string.length; i += 1)
+    if (string[i] === string[i].toUpperCase()) {
+      result += string[i].toLowerCase();
+    } else {
+      result += string[i].toUpperCase();
+    }
 
-  return result 
+  return result;
 }
 
 /**
@@ -421,9 +410,8 @@ function invertCase(string) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(firstName, lastName ) {
+function getStringFromTemplate(firstName, lastName) {
   return `Hello, ${firstName} ${lastName}!`;
-
 }
 
 /**
@@ -437,7 +425,7 @@ function getStringFromTemplate(firstName, lastName ) {
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
 function extractNameFromTemplate(string) {
-  return string.slice(7, -1)
+  return string.slice(7, -1);
 }
 
 /**
@@ -452,7 +440,8 @@ function extractNameFromTemplate(string) {
  *   unbracketTag('<a>') => 'a'
  */
 function unbracketTag(string) {
-return string.slice(1, -1)}
+  return string.slice(1, -1);
+}
 
 /**
  * Extracts e-mails from single string with e-mails list delimited by semicolons
@@ -470,7 +459,7 @@ return string.slice(1, -1)}
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(string) {
-  return string.split(";")  
+  return string.split(';');
 }
 
 /**
@@ -490,12 +479,13 @@ function extractEmails(string) {
  *
  */
 function encodeToRot13(string) {
-  const alphabetOriginal = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const alphabetOriginal =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   const alphabetROT13 = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
 
   let result = '';
 
-  for (let i = 0; i < string.length; i++) {
+  for (let i = 0; i < string.length; i += 1) {
     const char = string[i];
     const index = alphabetOriginal.indexOf(char);
 
@@ -534,12 +524,62 @@ function encodeToRot13(string) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  cards = [ 'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
-    'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
-    'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
-    'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+  const cards = [
+    'A♣',
+    '2♣',
+    '3♣',
+    '4♣',
+    '5♣',
+    '6♣',
+    '7♣',
+    '8♣',
+    '9♣',
+    '10♣',
+    'J♣',
+    'Q♣',
+    'K♣',
+    'A♦',
+    '2♦',
+    '3♦',
+    '4♦',
+    '5♦',
+    '6♦',
+    '7♦',
+    '8♦',
+    '9♦',
+    '10♦',
+    'J♦',
+    'Q♦',
+    'K♦',
+    'A♥',
+    '2♥',
+    '3♥',
+    '4♥',
+    '5♥',
+    '6♥',
+    '7♥',
+    '8♥',
+    '9♥',
+    '10♥',
+    'J♥',
+    'Q♥',
+    'K♥',
+    'A♠',
+    '2♠',
+    '3♠',
+    '4♠',
+    '5♠',
+    '6♠',
+    '7♠',
+    '8♠',
+    '9♠',
+    '10♠',
+    'J♠',
+    'Q♠',
+    'K♠',
+  ];
 
-return  cards.indexOf(value)
+  return cards.indexOf(value);
 }
 
 module.exports = {
